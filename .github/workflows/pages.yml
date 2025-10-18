@@ -26,12 +26,12 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: docs/package-lock.json
-      - name: Install dependencies and build
+      - name: Install Dependencies And Build
         run: |
           cd docs
           npm ci
           npm run build
-      - name: Upload artifact
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
