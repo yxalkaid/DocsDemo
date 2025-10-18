@@ -25,14 +25,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Change Directory
-        run: cd docs
-      - name: Install dependencies
-        run: npm ci
-      - name: Build with VitePress
-        run: npm run build
+          cache-dependency-path: docs/package-lock.json
+      - name: Install dependencies and build
+        run: |
+          cd docs
+          npm ci
+          npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
