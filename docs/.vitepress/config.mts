@@ -10,7 +10,7 @@ export default defineConfig({
   lastUpdated: false,
 
   head: [
-    ['link', { rel: 'icon', href: '/favicon.jpg' }]
+    ['link', { rel: 'icon', href: '/DocsDemo/favicon.jpg' }]
   ],
 
   themeConfig: {
