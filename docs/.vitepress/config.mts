@@ -5,7 +5,7 @@ export default defineConfig({
   title: "DocsDemo",
   description: "使用 vitepress 搭建的文档网站示例",
 
-  base: '/demo-docs/',
+  base: '/DocsDemo/',
 
   lastUpdated: false,
 
