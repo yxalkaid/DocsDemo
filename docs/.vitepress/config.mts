@@ -76,7 +76,7 @@ export default defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: "首页", link: "/" },
-    { text: "指南", link: "/quick-start"},
+    { text: "指南", link: "/demo"},
     {
       text: "关于",
       items: [
@@ -91,7 +91,7 @@ function sidebar(): DefaultTheme.Sidebar {
     {
       text: '指南',
       items: [
-        { text: "快速开始", link: '/quick-start' },
+        { text: "使用示例", link: '/demo' },
       ]
     }
   ]
