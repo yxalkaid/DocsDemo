@@ -1,36 +1,37 @@
-import { defineConfig, type DefaultTheme } from 'vitepress'
+import {defineConfig, type DefaultTheme} from 'vitepress'
 
 // https://vitepress.dev/zh/reference/site-config
 export default defineConfig({
   title: "DocsDemo",
   description: "使用 vitepress 搭建的文档网站示例",
-
   base: '/DocsDemo/',
-
   lastUpdated: false,
 
+  locales: {
+    root: {label: '简体中文', lang: 'zh-Hans'},
+    en: {label: 'English', lang: 'en-US'},
+  },
+
   head: [
-    ['link', { rel: 'icon', href: '/DocsDemo/favicon.jpg' }]
+    ['link', {rel: 'icon', href: '/DocsDemo/favicon.jpg'}]
   ],
 
   themeConfig: {
     // https://vitepress.dev/zh/reference/default-theme-config
     logo: "/favicon.jpg",
     nav: nav(),
-
     sidebar: sidebar(),
+    search: {
+      provider: 'local'
+    },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/yxalkaid" }
+      {icon: "github", link: "https://github.com/yxalkaid"}
     ],
 
     editLink: {
       pattern: "https://github.com/yxalkaid/DocsDemo/edit/main/docs/:path",
       text: '在 GitHub 上编辑此页面'
-    },
-
-    search: {
-      provider: 'local'
     },
 
     // footer: {
@@ -66,33 +67,84 @@ export default defineConfig({
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
     skipToContentLabel: '跳转到内容',
-  },
-  locales: {
-    root: { label: '简体中文', lang: 'zh-Hans' },
-    en: { label: 'English', lang: 'en-US' },
   }
 })
 
+
+/*
+ * 导航栏配置
+ */
 function nav(): DefaultTheme.NavItem[] {
   return [
-    { text: "首页", link: "/" },
-    { text: "指南", link: "/demo"},
+    {
+      text: "首页",
+      link: "/"
+    },
+    {
+      text: "指南",
+      link: "/guide/",
+      activeMatch: '/guide/'
+    },
+    {
+      text: "收藏",
+      link: "/star/",
+      activeMatch: '/star/'
+    },
     {
       text: "关于",
       items: [
-        { text: "Me", link: "https://yxalkaid.github.io/" },
+        {text: "Me", link: "https://yxalkaid.github.io/"},
       ]
     }
   ]
 }
 
-function sidebar(): DefaultTheme.Sidebar {
+/*
+ * 侧边栏配置
+ */
+function sidebar(): DefaultTheme.SidebarMulti {
+  return {
+    "/guide/": sidebarGuide(),
+    "/star/": sidebarStar()
+  }
+}
+
+function sidebarGuide(): DefaultTheme.Sidebar {
   return [
     {
-      text: '指南',
+      // text: '快速开始',
+      base: "/guide/",
       items: [
-        { text: "使用示例", link: '/demo' },
+        {text: "简介", link: 'index'},
+        {text: "示例", link: 'demo'},
       ]
-    }
+    },
+  ]
+}
+
+function sidebarStar(): DefaultTheme.Sidebar {
+  return [
+    {
+      base: "/star/",
+      items: [
+        {text: "简介", link: 'index'},
+      ]
+    },
+    {
+      text: '文集',
+      base: "/star/anthology/",
+      collapsed: false,
+      items: [
+        {text: "滕王阁序", link: '滕王阁序'},
+      ]
+    },
+    {
+      text: '诗集',
+      base: "/star/poetry/",
+      collapsed: false,
+      items: [
+        {text: "如梦令", link: '如梦令'},
+      ]
+    },
   ]
 }

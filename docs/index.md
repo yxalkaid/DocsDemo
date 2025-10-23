@@ -7,17 +7,14 @@ hero:
   text: "使用 vitepress 搭建的文档网站示例"
   tagline: 这是一个示例
   image:
-    src: /favicon.jpg
+    # src: /favicon.jpg
   actions:
     - theme: brand
-      text: 使用示例
-      link: /demo
+      text: 示例
+      link: /guide/demo
     - theme: alt
       text: VitePress
       link: https://vitepress.dev/zh
-    - theme: alt
-      text: GitHub
-      link: https://github.com/yxalkaid
 
 features:
   - icon: 🚀

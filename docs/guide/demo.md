@@ -2,12 +2,12 @@
 outline: deep
 ---
 
-# H1 标题
-
 <script setup>
-import VideoPlayer from "./components/VideoPlayer.vue"
+import VideoPlayer from "../components/VideoPlayer.vue"
 
 </script>
+
+# 示例
 
 ## H2 标题
 
